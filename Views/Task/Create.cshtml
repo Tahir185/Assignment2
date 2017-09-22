@@ -1,0 +1,50 @@
+﻿@model Assignment_2.Models.Task
+
+@{
+    ViewBag.Title = "Create Tasks";
+}
+
+
+
+<h2 class="alert alert-warning">Add New Task</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+   
+    <div class="alert alert-success">
+                  
+        @Html.LabelFor(m=>m.Name)
+        @Html.TextBoxFor(m => m.Name, new {@class = "form-control", @placeholder = "Name",@autofocus="autofocus"})
+        @Html.ValidationMessageFor(m=>m.Name)          
+        <br/>
+        @Html.LabelFor(m=>m.Description)
+        @Html.TextBoxFor(m=>m.Description,new{@class="form-control",@placeholder="Description"})
+        @Html.ValidationMessageFor(m=>m.Description)
+        <br/>
+        @Html.LabelFor(m=>m.DateCreated)
+        @Html.TextBoxFor(m=>m.DateCreated,new{@class="form-control datepicker", @type="date"})
+        @Html.ValidationMessageFor(m=>m.DateCreated)
+       
+        
+        <br/>
+       @* @Html.LabelFor(m=>m.DateUpdated)
+        @Html.TextBoxFor(m=>m.DateUpdated,new{@class="form-control",@placeholder="DateUpdated"})
+        @Html.ValidationMessageFor(m=>m.DateUpdated)*@
+        <br/>
+
+    </div>
+        <p>
+            <input type="submit" value="Submit" class="btn btn-group-lg" />
+             @Html.ActionLink("Back to List", "Index")
+        </p>
+   
+}
+
+
+<div>
+    @*@Html.ActionLink("Back to List", "Index")*@
+</div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+}

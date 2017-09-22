@@ -1,0 +1,44 @@
+﻿@using Assignment_2
+@using Assignment_2.Models
+@model IEnumerable<Assignment_2.Models.Task>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="alert alert-success">Total Tasks : @Model.Count()</h2>
+<a href="@Url.Action("Create","Task")">Add New Task<span class="glyphicon glyphicon-plus"></span></a>
+
+<table class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>DateCreated</th>
+            <th>DateUpdated</th>
+            <th></th>
+        </tr>
+    </thead>
+   
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.DateCreated</td>
+                <td>@item.DateUpdated</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Task", new {Id = item.Id})"class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("Delete", "Task", new {Id = item.Id})" class="btn btn-danger">Delete<span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+               
+        } 
+            
+  </tbody>
+
+</table>

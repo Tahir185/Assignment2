@@ -1,0 +1,68 @@
+﻿@model Assignment_2.Models.Task
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="alert alert-danger">Delete Record ?</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div class="row">
+    <div class="col-md-5">
+        <div class="panel panel-danger">
+        <div class="panel-heading">Delete ?</div>
+        <div class="panel-body">
+            <div>@Model.Id</div>
+            <div>@Model.Name</div>
+            <div>@Model.Description</div>
+            <div>@Model.DateCreated</div>
+            <div>@Model.DateUpdated</div>
+        </div>
+        <div class="panel-footer">
+            <form method="POST">
+                <input type="hidden" name="id" value="@Model.Id"/>
+                <button type="submit" class="btn btn-danger">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></button>
+                 @Html.ActionLink("Back to List", "Index")
+            </form>
+        </div>
+    </div>
+    </div>
+   
+</div>
+@*<fieldset>
+    <legend>Task</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateCreated)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateCreated)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateUpdated)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateUpdated)
+    </div>
+</fieldset>*@
+@*@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}*@

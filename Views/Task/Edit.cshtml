@@ -1,0 +1,60 @@
+﻿@model Assignment_2.Models.Task
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 class="alert alert-success">Edit Task</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    
+        
+       
+    <div class="alert alert-success">
+        
+         @Html.LabelFor(model => model.Id)
+         <br />
+        @Html.TextBoxFor(model => model.Id,new{@class="form-control",@readonly="readonly"})
+         <br />
+        @Html.LabelFor(model => model.Name)
+         <br />
+        @Html.TextBoxFor(model => model.Name,new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+        <br />
+        @Html.LabelFor(model => model.Description)
+        <br />
+        @Html.TextBoxFor(model => model.Description,new {@class = "form-control"})
+        @Html.ValidationMessageFor(model => model.Description)
+        <br />
+        
+       
+        @Html.LabelFor(model => model.DateCreated)
+         <br />
+        @Html.TextBoxFor(model => model.DateCreated,new {@class="form-control datepicker", @type="date"})
+      
+        @Html.ValidationMessageFor(model => model.DateCreated)
+         <br />
+       
+      @* @Html.TextBoxFor(model=>Model.DateUpdated,"{0:dd/MM/yyyy HH:mm}")*@
+       @* @Html.LabelFor(model => model.DateUpdated)
+          <br />
+       @Html.TextBoxFor(model => model.DateUpdated,new {@class="form-control datepicker", @type="date"})
+        @Html.ValidationMessageFor(model => model.DateUpdated)*@
+       </div>  
+
+        <p>
+            <input type="submit" value="Save"class="btn btn-group-lg" />
+        </p>
+   
+
+}
+
+<div>
+   @Html.ActionLink("Back to List", "Index")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
